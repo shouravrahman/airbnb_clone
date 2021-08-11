@@ -10,7 +10,7 @@ import {
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRangePicker } from 'react-date-range';
+import { DateRange, DateRangePicker } from 'react-date-range';
 import { useRouter } from 'next/dist/client/router';
 
 const Header = ({ placeholder }) => {
@@ -82,10 +82,18 @@ const Header = ({ placeholder }) => {
 			</div>
 			{searchInput && (
 				<div className='flex flex-col col-span-3 mx-auto mt-2'>
-					<DateRangePicker
+					{/* <DateRangePicker
+						className='sm:hidden inline'
 						ranges={[selectionRange]}
 						minDate={new Date()}
-						rangeColors={['#FD5D61']}
+						rangeColors={['#FD5B61']}
+						onChange={handleSelect}
+					/> */}
+					<DateRange
+						className=' sm:inline md:hidden lg:hidden xl:hidden 2xl:hidden'
+						ranges={[selectionRange]}
+						minDate={new Date()}
+						rangeColors={['#FD5B61']}
 						onChange={handleSelect}
 					/>
 					<div className='flex items-center border-b mb-4'>

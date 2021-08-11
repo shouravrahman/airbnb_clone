@@ -4,8 +4,9 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import InfoCard from '../components/InfoCard';
+import Map from '../components/Map';
 
-const Search = () => {
+const Search = ({ searchResults }) => {
 	const router = useRouter();
 	const { location, startDate, endDate, noOfGuests } = router.query;
 	const formattedStartDate = format(new Date(startDate), 'dd MMMM yy');
@@ -45,6 +46,9 @@ const Search = () => {
 							)
 						)}
 					</div>
+				</section>
+				<section className='hidden xl:inline-flex xl:min-w-[600px]'>
+					<Map searchResults={searchResults} />
 				</section>
 			</main>
 			<Footer />
