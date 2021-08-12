@@ -11,7 +11,7 @@ const InfoCard = ({
 	total,
 }) => {
 	return (
-		<div className='flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow:lg transition duration-200 easse-out first:border-t'>
+		<div className='flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 easse-out first:border-t'>
 			<div className='relative h-24 w-40 md:w-52 md:h-80 flex-shrink-0'>
 				<Image
 					src={img}
