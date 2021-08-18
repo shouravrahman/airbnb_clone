@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import InfoCard from '../components/InfoCard';
 import Map from '../components/Map';
-
+import { v4 as uuidv4 } from 'uuid';
 const Search = ({ searchResults }) => {
 	const router = useRouter();
 	const { location, startDate, endDate, noOfGuests } = router.query;
@@ -20,9 +20,7 @@ const Search = ({ searchResults }) => {
 					<p className='text-xsm'>
 						300+ stays -{range} - for {noOfGuests} guests
 					</p>
-					<h1 className='text-3xl font-semibold mt-2 mb-6'>
-						Stays in {location}
-					</h1>
+					<h1 className='text-3xl font-semibold mt-2 mb-6'>Stays in {location}</h1>
 					<div className='hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap'>
 						<p className='button'>cancelation flexibility</p>
 						<p className='button'>type of place</p>
@@ -31,20 +29,18 @@ const Search = ({ searchResults }) => {
 						<p className='button'>more filters</p>
 					</div>
 					<div className='flex flex-col'>
-						{searchResults?.map(
-							({ img, location, title, description, star, price, total }) => (
-								<InfoCard
-									key={Date.now()}
-									img={img}
-									location={location}
-									title={title}
-									description={description}
-									star={star}
-									price={price}
-									total={total}
-								/>
-							)
-						)}
+						{searchResults?.map(({ img, location, title, description, star, price, total }) => (
+							<InfoCard
+								key={uuidv4()}
+								img={img}
+								location={location}
+								title={title}
+								description={description}
+								star={star}
+								price={price}
+								total={total}
+							/>
+						))}
 					</div>
 				</section>
 				<section className='hidden xl:inline-flex xl:min-w-[600px]'>
@@ -59,8 +55,8 @@ const Search = ({ searchResults }) => {
 export default Search;
 
 export async function getServerSideProps() {
-	const searchResults = await fetch('https://links.papareact.com/isz').then(
-		(res) => res.json()
+	const searchResults = await fetch('https://links.papareact.com/isz').then((res) =>
+		res.json()
 	);
 	return {
 		props: {

@@ -48,8 +48,7 @@ const Header = ({ placeholder }) => {
 			{/* left */}
 			<div
 				onClick={() => router.push('/')}
-				className='relative flex items-center h-10 cursor-pointer my-auto'
-			>
+				className='relative flex items-center h-10 cursor-pointer my-auto'>
 				<Image
 					src='https://links.papareact.com/qd3'
 					layout='fill'
@@ -59,7 +58,7 @@ const Header = ({ placeholder }) => {
 			</div>
 
 			{/* middle */}
-			<div className='flex items-center md:border-2 rounded-full py-2 md:shadow-sm'>
+			<div className='flex items-center border-1 md:border-2 rounded-full py-2 shadow-sm md:shadow-md'>
 				<input
 					type='text'
 					value={searchInput}
@@ -83,42 +82,39 @@ const Header = ({ placeholder }) => {
 			{searchInput && (
 				<div className='flex flex-col col-span-3 mx-auto mt-2'>
 					{/* <DateRangePicker
-						className='sm:hidden inline'
+						className='hidden md:inline'
 						ranges={[selectionRange]}
 						minDate={new Date()}
 						rangeColors={['#FD5B61']}
 						onChange={handleSelect}
 					/> */}
 					<DateRange
-						className=' sm:inline md:hidden lg:hidden xl:hidden 2xl:hidden'
+						className='md:hidden lg:hidden xl:hidden 2xl:hidden'
 						ranges={[selectionRange]}
 						minDate={new Date()}
 						rangeColors={['#FD5B61']}
 						onChange={handleSelect}
 					/>
 					<div className='flex items-center border-b mb-4'>
-						<h2 className='text-2xl font-semibold flex-grow'>
-							Number of guests
-						</h2>
+						<h2 className='text-2xl font-semibold flex-grow'>Number of guests</h2>
 						<UsersIcon className='h-6 pr-3' />
 						<input
 							type='number'
 							onChange={(e) => setNoOfGuests(e.target.value)}
 							min={1}
 							className='w-12 pl-2 bg-gray-200 text-lg outline-none text-red-400'
+							placeholder='1'
 						/>
 					</div>
 					<div className='flex'>
 						<button
 							className='flex-grow text-gray-500 shadow-md rounded-md py-2'
-							onClick={resetInput}
-						>
+							onClick={resetInput}>
 							Cancel
 						</button>
 						<button
 							onClick={handleSearch}
-							className='flex-grow text-red-500 shadow-md rounded-md py-2'
-						>
+							className='flex-grow text-red-500 shadow-md rounded-md py-2'>
 							Search
 						</button>
 					</div>
